@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Victor Marques</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #111827;
+      padding: 16px 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .nav-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .brand { color: #fff; font-size: 20px; font-weight: bold; }
+    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .nav-links a { color: #e5e7eb; text-decoration: none; font-size: 14px; font-weight: bold; }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      padding: 80px 24px;
+    }
+    .hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .hero h1 { font-size: 42px; margin: 0 0 12px 0; }
+    .hero p { color: #d1d5db; font-size: 18px; margin-bottom: 24px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .btn-primary { background: white; color: #111827; }
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-card h3 { margin-top: 0; }
+    .hero-card ul { padding-left: 18px; margin-bottom: 0; color: #e5e7eb; }
+
+    .section { padding: 70px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title { font-size: 32px; margin-top: 0; margin-bottom: 12px; }
+    .section-subtitle { color: #6b7280; max-width: 740px; margin-bottom: 32px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      border: 1px solid #eef2f7;
+    }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      border: 1px solid #eef2f7;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-card h3 { margin: 0; font-size: 20px; }
+    .project-card p { margin: 0; color: #4b5563; flex-grow: 1; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .project-link {
+      color: #111827;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .timeline { display: flex; flex-direction: column; gap: 16px; }
+    .timeline-item { border-left: 4px solid #111827; padding-left: 16px; }
+    .timeline-item h4 { margin: 0 0 6px 0; }
+    .timeline-item p { margin: 0; color: #4b5563; }
+
+    .contact-box {
+      text-align: center;
+      background: #111827;
+      color: white;
+      border-radius: 22px;
+      padding: 40px 24px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+      padding: 30px 20px 50px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-content,
+      .grid-2,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-wrap">
+    <div class="brand">Victor Marques</div>
+    <nav class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">Portfólio pessoal • Desenvolvedor iniciante</div>
+      <h1>Construindo minha transição para a área de tecnologia</h1>
+      <p>
+        Sou estudante de Análise e Desenvolvimento de Sistemas com experiência em processos e dados.
+        Estou desenvolvendo projetos práticos para iniciar minha carreira como desenvolvedor.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+        <a class="btn btn-secondary" href="#contato">Entrar em contato</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Resumo rápido</h3>
+      <ul>
+        <li>Estudante de ADS</li>
+        <li>Foco em HTML, CSS e JavaScript</li>
+        <li>Projetos práticos com deploy</li>
+        <li>Buscando estágio ou vaga júnior</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <div class="container">
+    <h2 class="section-title">Sobre mim</h2>
+    <p class="section-subtitle">
+      Perfil analítico com experiência em processos e transição para desenvolvimento web.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Quem eu sou</h3>
+        <p>
+          Meu nome é Victor Marques e estou em transição para a área de tecnologia.
+          Estou construindo projetos para demonstrar evolução técnica.
+        </p>
+      </div>
+
+      <div class="card" id="habilidades">
+        <h3>Habilidades</h3>
+        <div class="skills">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projetos">
+  <div class="container">
+    <h2 class="section-title">Projetos</h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+        <h3>Sistema de Cadastro de Usuários</h3>
+        <p>CRUD com localStorage.</p>
+        <div class="project-stack">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <a class="project-link" href="https://vpmmarquess.github.io/sistema-cadastro/" target="_blank">Ver projeto</a>
+        <a class="project-link" href="https://github.com/vpmmarquess/sistema-cadastro" target="_blank">Código</a>
+      </div>
+
+      <div class="project-card">
+        <h3>To-Do List</h3>
+        <p>Lista de tarefas com filtros.</p>
+        <div class="project-stack">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <a class="project-link" href="https://vpmmarquess.github.io/todo-list/" target="_blank">Ver projeto</a>
+        <a class="project-link" href="https://github.com/vpmmarquess/todo-list" target="_blank">Código</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Próximo projeto</h3>
+        <p>Em desenvolvimento.</p>
+        <div class="project-stack">
+          <span class="tag">Em construção</span>
+        </div>
+        <span class="project-link">Em desenvolvimento</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <div class="container">
+    <div class="contact-box">
+      <h2 class="section-title">Contato</h2>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:victor.pereira.marques@gmail.com">E-mail</a>
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/victor-marques-935442ba/" target="_blank">LinkedIn</a>
+        <a class="btn btn-primary" href="https://github.com/vpmmarquess" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Victor Marques
+</footer>
+
+</body>
+</html>
